@@ -1,0 +1,37 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <script>
+        function sea() {
+            const elem = document.getElementById("eki");
+            const data = {
+                "station": elem.value
+            };
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "./getLines", false);
+            xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+            xhr.send(JSON.stringify(data));
+            console.log(xhr.responseText);
+            var res = JSON.parse(xhr.responseText);
+            var outText = "";
+            document.getElementById("out").innerHTML = res.linesList.join("<br/>");
+
+        }
+    </script>
+</head>
+<body>
+<p></p>
+
+<form action="/send" method="post">
+    <input type="number" name="num"/>
+    <button type="submit">send</button>
+</form>
+
+<p>路線検索</p>
+<input type="text" id="eki"/>
+<button onclick="sea()">search</button>
+
+<div id="out"></div>
+
+</body>
+</html>
