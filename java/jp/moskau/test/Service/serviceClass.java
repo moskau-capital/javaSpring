@@ -52,6 +52,9 @@ public class serviceClass {
                 boolean inContain = txt.contains("新幹線のぞみ") || txt.contains("新幹線はやぶさ") || txt.contains("新幹線みずほ");
                 if (contain && !(inContain)) {
                     out.getLinesList().add(txt);
+                } else if (!(contain) && !(inContain)) {
+                    System.out.println(txt);
+                    break;
                 } else {
                     System.out.println(txt);
                     continue;
@@ -59,6 +62,7 @@ public class serviceClass {
 
             }
             System.out.println(" ");
+
 
             return out;
 
