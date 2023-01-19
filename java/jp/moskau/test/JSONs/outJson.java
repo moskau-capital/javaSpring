@@ -1,4 +1,4 @@
-package jp.moskau.test.route;
+package jp.moskau.test.JSONs;
 
 import java.util.ArrayList;
 import java.util.List;

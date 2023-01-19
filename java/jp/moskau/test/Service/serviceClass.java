@@ -1,17 +1,14 @@
 package jp.moskau.test.Service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import jp.moskau.test.route.inputJson;
-import jp.moskau.test.route.outJson;
+import jp.moskau.test.JSONs.inputJson;
+import jp.moskau.test.JSONs.outJson;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.ArrayList;
 import java.net.URLEncoder;
 
 public class serviceClass {
@@ -38,7 +35,6 @@ public class serviceClass {
             outJson out = new outJson();
             String reqEki = inJson.getStation();
             String reqInEki = reqEki.replaceAll("駅", "");
-
             String encStation = URLEncoder.encode(reqInEki, "UTF-8");
             Document html = Jsoup.connect(String.format("https://www.jorudan.co.jp/time/eki_%s.html", encStation)).get();
             Elements elems = html.select("._rosen_list > tbody:nth-child(1) > tr > td:nth-child(1)");
@@ -54,7 +50,8 @@ public class serviceClass {
                     out.getLinesList().add(txt);
                 } else if (!(contain) && !(inContain)) {
                     System.out.println(txt);
-                    break;
+                    continue;
+                    //break;
                 } else {
                     System.out.println(txt);
                     continue;

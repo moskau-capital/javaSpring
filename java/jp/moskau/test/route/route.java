@@ -1,16 +1,13 @@
 package jp.moskau.test.route;
 
+import jp.moskau.test.JSONs.inputJson;
+import jp.moskau.test.JSONs.outJson;
 import jp.moskau.test.Service.serviceClass;
 
 import org.springframework.web.bind.annotation.*;
 
-import com.fasterxml.jackson.databind.*;
-import com.fasterxml.jackson.core.*;
 import org.springframework.web.servlet.ModelAndView;
 import jakarta.servlet.http.HttpServletRequest;
-
-import java.util.List;
-import java.util.ArrayList;
 
 @RestController
 public class route {
@@ -19,6 +16,9 @@ public class route {
     @RequestMapping("/")
     public ModelAndView index(HttpServletRequest req) {
         System.out.println(req.getRemoteAddr());
+        ipStrage.ip = req.getRemoteAddr();
+        sendLog logging = new sendLog();
+        logging.start();
         ModelAndView model = new ModelAndView();
         model.setViewName("index");
         return model;
@@ -46,4 +46,12 @@ public class route {
 
     }
 
+    @RequestMapping(value="/ua", method=RequestMethod.GET)
+    public String test(HttpServletRequest reqHead) {
+
+            return reqHead.getHeader("User-Agent");
+    }
+
+
 }
+

@@ -1,4 +1,4 @@
-package jp.moskau.test.route;
+package jp.moskau.test.JSONs;
 
 public class inputJson {
     private String station;
