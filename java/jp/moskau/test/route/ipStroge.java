@@ -1,5 +1,5 @@
 package jp.moskau.test.route;
 
-class ipStrage {
+class ipStorage {
     static String ip;
 }
