@@ -18,7 +18,7 @@ class sendLog extends Thread{
         )
         {
 
-            PreparedStatement script = sql_con.prepareStatement("INSERT INTO access_log (ip, access_at) VALUES ('" + ipStrage.ip + "', cast(now() as datetime))");
+            PreparedStatement script = sql_con.prepareStatement("INSERT INTO access_log (ip, access_at) VALUES ('" + ipStorage.ip + "', cast(now() as datetime))");
             script.execute();
 
             script.close();
