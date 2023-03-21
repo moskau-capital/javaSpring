@@ -51,7 +51,6 @@ public class serviceClass {
                 } else if (!(contain) && !(inContain)) {
                     System.out.println(txt);
                     continue;
-                    //break;
                 } else {
                     System.out.println(txt);
                     continue;
@@ -67,7 +66,7 @@ public class serviceClass {
         } catch (IOException e) {
             outJson out_err = new outJson();
             out_err.getLinesList().add("Not found or overlap station.");
-                return out_err;
+            return out_err;
             }
         }
 
